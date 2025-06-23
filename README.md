@@ -1,7 +1,6 @@
 # kzod
 
-Zod-inspired, pure Kotlin runtime JSON schema validation library.  
-런타임에서 JSON 구조를 안전하게 검증하고 타입 안전한 데이터를 생성하세요.
+Zod-inspired, pure Kotlin runtime JSON schema validation library.
 
 ---
 
