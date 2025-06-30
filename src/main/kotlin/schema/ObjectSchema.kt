@@ -1,6 +1,6 @@
 package schema
 
-import java.lang.IllegalArgumentException
+import kotlin.IllegalArgumentException
 
 class ObjectSchema(
     private val fields: Map<String, Schema<*>>,
@@ -11,7 +11,8 @@ class ObjectSchema(
         }
 
         for ((key, schema) in fields) {
-            val fieldValue = value[key]
+            val fieldValue = value[key] ?: throw IllegalArgumentException("field($key) is empty")
+
             schema.validate(fieldValue)
         }
     }

@@ -41,5 +41,7 @@ class SchemaBuilder {
 
     fun phoneNumber(regex: Regex) = PhoneNumberFormatSchema(regex.toPattern())
 
+    fun boolean() = BooleanSchema()
+
     fun build() = ObjectSchema(fields)
 }
