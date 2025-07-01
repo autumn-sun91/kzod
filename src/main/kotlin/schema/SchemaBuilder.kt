@@ -1,5 +1,6 @@
 package schema
 
+import schema.enum.EnumSchema
 import schema.format.DateFormatSchema
 import schema.format.EmailFormatSchema
 import schema.format.ISODateFormatSchema
@@ -7,6 +8,7 @@ import schema.format.PhoneNumberFormatSchema
 import schema.format.UUIDV1FormatSchema
 import schema.format.UUIDV4FormatSchema
 import schema.string.StringSchema
+import kotlin.reflect.KClass
 
 class SchemaBuilder {
     private val fields = mutableMapOf<String, Schema<*>>()
@@ -42,6 +44,8 @@ class SchemaBuilder {
     fun phoneNumber(regex: Regex) = PhoneNumberFormatSchema(regex.toPattern())
 
     fun boolean() = BooleanSchema()
+
+    fun enum(enum: KClass<out Enum<*>>) = EnumSchema(enum)
 
     fun build() = ObjectSchema(fields)
 }
