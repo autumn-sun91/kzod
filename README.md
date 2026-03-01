@@ -32,7 +32,7 @@ val userSchema = kzodObj {
   "age" `is` int()
 }
 
-val result = userSchema.parse(mapOtf("name" to "Autumn", "age" to 20))
+val result = userSchema.parse(mapOf("name" to "Autumn", "age" to 20))
 
 println(result.get())
 // {"name": "Autumn", "age": 20}
@@ -40,6 +40,9 @@ println(result.get())
 ```
 
 ---
+
+## TODO
+- JSON 포맷의 String 값을 유효성 체크하는 기능 추가
 
 📜 Licence
 MIT License
